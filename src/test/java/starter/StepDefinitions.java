@@ -1,21 +1,20 @@
 package starter;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.en.And;
+import starter.googleSearchPage;
 
 public class StepDefinitions {
-    @Given("^I am thirsty$")
-    public void i_am_thirsty() throws Throwable {
+    googleSearchPage gPage;
+
+    @Given("^I am on Google Page$")
+    public void i_am_on_google_page() throws Throwable {
+        gPage.openGoogle();
     }
 
-    @When("^I order a cappuccino$")
-    public void i_order_a_cappuccino() throws Throwable {
-    }
-
-    @Then("^I should not receive a latte$")
-    public void i_should_not_receive_a_latte() throws Throwable {
+    @When("^I should be able to search for (.*)$")
+    public void i_should_be_able_search(String searchText) throws Throwable {
+        gPage.search(searchText);
     }
 
 }
